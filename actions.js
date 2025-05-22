@@ -10,8 +10,8 @@ class Card {
 
     const wrapper = document.createElement('div');
     wrapper.innerHTML = [
-      '<div class="col-sm-6 mb-3 mb-sm-0">',
-        '<div class="card" style="margin: 8px; border: 2px solid black;">',
+      '<div class="col">',
+        '<div class="card" style="border: 2px solid black;">',
           '<div class="card-body">',
             `<img src="${img}" class="card-img-top" alt="User Image">`,
             `<h5 class="card-title">${Title}</h5>`,
