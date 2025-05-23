@@ -26,36 +26,39 @@
 
   <script src="shoes.js"></script>
   <script>
-    // Load or initialize the shoe library
-    let shoes = JSON.parse(localStorage.getItem('shoes')) || defaultShoes;
+        // Load or initialize the shoe library
+    let shoes = JSON.parse(localStorage.getItem('shoes')) || {};
 
     document.getElementById('createButton').addEventListener('click', () => {
       const name = document.getElementById('shoeName').value.trim();
       const ETA = document.getElementById('ETA').value.trim();
-      const pic = document.getElementById('pic').value.trim();
+      const picInput = document.getElementById('pic');
 
-      if (!name || !ETA) {
-        alert("Please fill in both fields.");
+      if (!name || !ETA || picInput.files.length === 0) {
+        alert("Please enter all fields and upload an image.");
         return;
       }
 
-      // Add the new item to the library
-      shoes[name] = {
-        name: name,
-        ETA: ETA,
-        pic: pic
+      const file = picInput.files[0];
+      const reader = new FileReader();
+
+      reader.onload = function(e) {
+        const base64Image = e.target.result; // This is your img src
+        const id = Date.now().toString();
+
+        shoes[id] = {
+          name: name,
+          eta: ETA,
+          img: base64Image
+        };
+
+        localStorage.setItem('shoes', JSON.stringify(shoes));
+        alert("Shoe created!");
+        location.reload();
       };
 
-      // Save it to localStorage
-      localStorage.setItem('shoes', JSON.stringify(shoes));
-
-      // Clear inputs
-      document.getElementById('shoeName').value = '';
-      document.getElementById('ETA').value = '';
-      document.getElementById('pic').value = '';
-
-      alert(`Shoe "${name}" added!`);
+      reader.readAsDataURL(file); // Converts file to Base64
     });
-  </script>
+</script>
 </body>
 </html>
