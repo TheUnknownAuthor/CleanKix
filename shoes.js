@@ -1,5 +1,5 @@
 const defaultShoes = {
-    Jodran1: { name: "Jodran12", bio: "Loves coding and cats." },
-    Yeezy: { name: "Yeezy2", bio: "Enjoys hiking and photography." }
+    Jodran1: { name: "Jodran12", ETA: "Hello", img:"https://decantlabs.com/cdn/shop/files/IMG_1206.png?v=1740889745&width=280"},
+    Yeezy: { name: "Yeezy2", ETA: "Hello", img:"https://decantlabs.com/cdn/shop/files/IMG_1206.png?v=1740889745&width=280"}
   };
   

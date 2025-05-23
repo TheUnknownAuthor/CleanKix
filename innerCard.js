@@ -11,7 +11,7 @@
   
   if (user) {
     document.getElementById("username").textContent = user.name;
-    document.getElementById("bio").textContent = user.bio;
+    document.getElementById("ETA").textContent = user.ETA;
   } else {
     document.body.innerHTML = "<h1>User not found</h1>";
   }

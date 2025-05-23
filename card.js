@@ -33,7 +33,7 @@ function createCard(title, id, img, prog) {
 }
 
 for (const [id, shoe] of Object.entries(shoes)) {
-  createCard(shoe.name, id, "", "50");
+  createCard(shoe.name, id, shoe.img, "50");
 }
 
 

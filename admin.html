@@ -14,8 +14,12 @@
 
   <div class="input-group mb-3">
     <input id="shoeName" type="text" placeholder="Shoe Name" class="form-control">
-    <input id="shoeBio" type="text" placeholder="Bio" class="form-control">
+    <input id="ETA" type="text" placeholder="Date (MM/DD/YY)" class="form-control">
     <button class="btn btn-outline-success" type="button" id="createButton">Create</button>
+    <div class="input-group mb-3">
+      <label class="input-group-text" for="pic">Upload</label>
+      <input type="file" class="form-control" id="pic">
+    </div>
   </div>
 
   <a href="index.html"><button type="button" class="btn btn-success">Home</button></a>
@@ -27,9 +31,10 @@
 
     document.getElementById('createButton').addEventListener('click', () => {
       const name = document.getElementById('shoeName').value.trim();
-      const bio = document.getElementById('shoeBio').value.trim();
+      const ETA = document.getElementById('ETA').value.trim();
+      const pic = document.getElementById('pic').value.trim();
 
-      if (!name || !bio) {
+      if (!name || !ETA) {
         alert("Please fill in both fields.");
         return;
       }
@@ -37,7 +42,8 @@
       // Add the new item to the library
       shoes[name] = {
         name: name,
-        bio: bio
+        ETA: ETA,
+        pic: pic
       };
 
       // Save it to localStorage
@@ -45,7 +51,8 @@
 
       // Clear inputs
       document.getElementById('shoeName').value = '';
-      document.getElementById('shoeBio').value = '';
+      document.getElementById('ETA').value = '';
+      document.getElementById('pic').value = '';
 
       alert(`Shoe "${name}" added!`);
     });
